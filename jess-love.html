@@ -332,8 +332,9 @@
             words.forEach((word, index) => {
                 const span = document.createElement('span');
                 span.className = 'message-word';
-                span.textContent = word + ' ';
+                span.textContent = word;
                 span.style.animationDelay = (index * 0.2) + 's';
+                span.style.marginRight = '0.3em'; // Add proper spacing
                 element.appendChild(span);
             });
         }
