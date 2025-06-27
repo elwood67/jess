@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 47th Birthday Captain! 🚢📈</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #001122, #003366, #001122);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .tugboat {
+            position: absolute;
+            z-index: 3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .tugboat-body {
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            border-radius: 10px 10px 5px 5px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .tugboat-cabin {
+            width: 30px;
+            height: 25px;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            border-radius: 5px 5px 2px 2px;
+            position: absolute;
+            top: -20px;
+            left: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .tugboat-smokestack {
+            width: 8px;
+            height: 15px;
+            background: linear-gradient(45deg, #444, #666);
+            border-radius: 2px;
+            position: absolute;
+            top: -15px;
+            left: 5px;
+        }
+
+        .smoke {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(200, 200, 200, 0.7);
+            border-radius: 50%;
+            animation: smoke-rise 3s infinite;
+        }
+
+        @keyframes smoke-rise {
+            0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+            100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+        }
+
+        .chart-container {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 80%;
+            height: 60%;
+            z-index: 2;
+        }
+
+        .chart-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88, #00cc66);
+            animation: draw-line 3s ease-in-out infinite;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        @keyframes draw-line {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .candlestick {
+            position: absolute;
+            width: 4px;
+            background: #00ff88;
+            animation: candlestick-grow 2s ease-out infinite;
+        }
+
+        .candlestick.red {
+            background: #ff4444;
+        }
+
+        @keyframes candlestick-grow {
+            0% { height: 0; }
+            100% { height: var(--height); }
+        }
+
+        .main-title {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffd700;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            z-index: 5;
+            animation: title-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes title-glow {
+            0% { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 20px #ffd700; }
+            100% { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 40px #ffd700, 0 0 60px #ffd700; }
+        }
+
+        .subtitle {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00ccff;
+            font-size: 2rem;
+            z-index: 5;
+            animation: fade-in 3s ease-in;
+        }
+
+        .message {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            z-index: 5;
+            animation: slide-up 2s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slide-up {
+            0% { transform: translateX(-50%) translateY(50px); opacity: 0; }
+            100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+
+        .bitcoin-symbol {
+            position: absolute;
+            color: #f7931a;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 4;
+            animation: bitcoin-float 5s ease-in-out infinite;
+        }
+
+        @keyframes bitcoin-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            75% { transform: translateY(-5px) rotate(-5deg); }
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(0, 150, 255, 0.3), transparent);
+            animation: wave-move 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes wave-move {
+            0%, 100% { transform: translateX(-100px); }
+            50% { transform: translateX(100px); }
+        }
+
+        .trading-message {
+            position: absolute;
+            color: #00ff88;
+            font-weight: bold;
+            z-index: 4;
+            animation: message-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes message-pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stars" id="stars"></div>
+        <div class="wave"></div>
+        
+        <div class="main-title">HAPPY 47th BIRTHDAY</div>
+        <div class="subtitle">CAPTAIN! 🚢⚓</div>
+        
+        <div class="chart-container" id="chartContainer"></div>
+        
+        <div class="message">
+            🎉 To our amazing Captain and trading mentor! 🎉<br>
+            Hope you have an amazing day!<br>
+            Thank you for steering us through the markets as well as you do the rivers! ⚓📈
+        </div>
+    </div>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Create tugboats
+        function createTugboat(x, y) {
+            const tugboat = document.createElement('div');
+            tugboat.className = 'tugboat';
+            tugboat.style.left = x + 'px';
+            tugboat.style.top = y + 'px';
+            tugboat.style.animationDelay = Math.random() * 2 + 's';
+
+            tugboat.innerHTML = `
+                <div class="tugboat-body">
+                    <div class="tugboat-cabin">
+                        <div class="tugboat-smokestack"></div>
+                    </div>
+                </div>
+            `;
+
+            // Add smoke particles
+            const smokestack = tugboat.querySelector('.tugboat-smokestack');
+            setInterval(() => {
+                const smoke = document.createElement('div');
+                smoke.className = 'smoke';
+                smoke.style.left = '2px';
+                smoke.style.top = '-5px';
+                smokestack.appendChild(smoke);
+                
+                setTimeout(() => {
+                    smoke.remove();
+                }, 3000);
+            }, 500);
+
+            document.querySelector('.container').appendChild(tugboat);
+        }
+
+        // Create Bitcoin symbols
+        function createBitcoinSymbol(x, y) {
+            const bitcoin = document.createElement('div');
+            bitcoin.className = 'bitcoin-symbol';
+            bitcoin.textContent = '₿';
+            bitcoin.style.left = x + 'px';
+            bitcoin.style.top = y + 'px';
+            bitcoin.style.animationDelay = Math.random() * 3 + 's';
+            document.querySelector('.container').appendChild(bitcoin);
+        }
+
+        // Create chart elements
+        function createChart() {
+            const container = document.getElementById('chartContainer');
+            
+            // Create chart lines
+            for (let i = 0; i < 5; i++) {
+                const line = document.createElement('div');
+                line.className = 'chart-line';
+                line.style.top = (i * 15 + 20) + '%';
+                line.style.left = '0%';
+                line.style.animationDelay = (i * 0.5) + 's';
+                container.appendChild(line);
+            }
+
+            // Create candlesticks
+            for (let i = 0; i < 20; i++) {
+                const candlestick = document.createElement('div');
+                candlestick.className = Math.random() > 0.6 ? 'candlestick' : 'candlestick red';
+                const height = Math.random() * 60 + 20;
+                candlestick.style.height = height + 'px';
+                candlestick.style.setProperty('--height', height + 'px');
+                candlestick.style.left = (i * 4 + 5) + '%';
+                candlestick.style.bottom = '20%';
+                candlestick.style.animationDelay = (i * 0.1) + 's';
+                container.appendChild(candlestick);
+            }
+        }
+
+        // Create trading messages
+        function createTradingMessages() {
+            const messages = [
+                'BULLISH! 📈',
+                'TO THE MOON! 🚀',
+                'HODL! 💎🙌',
+                'GREEN CANDLES! 🕯️',
+                'CAPTAIN\'S PICKS! ⚓'
+            ];
+
+            messages.forEach((msg, index) => {
+                const messageEl = document.createElement('div');
+                messageEl.className = 'trading-message';
+                messageEl.textContent = msg;
+                messageEl.style.left = (20 + index * 15) + '%';
+                messageEl.style.top = (30 + index * 8) + '%';
+                messageEl.style.animationDelay = (index * 0.8) + 's';
+                document.querySelector('.container').appendChild(messageEl);
+            });
+        }
+
+        // Initialize everything
+        function init() {
+            createStars();
+            
+            // Create multiple tugboats
+            createTugboat(100, window.innerHeight - 200);
+            createTugboat(window.innerWidth - 200, window.innerHeight - 250);
+            createTugboat(window.innerWidth / 2 - 50, window.innerHeight - 180);
+            
+            // Create Bitcoin symbols
+            createBitcoinSymbol(50, 100);
+            createBitcoinSymbol(window.innerWidth - 100, 150);
+            createBitcoinSymbol(200, 80);
+            createBitcoinSymbol(window.innerWidth - 300, 120);
+            
+            createChart();
+            createTradingMessages();
+        }
+
+        // Start the animation
+        window.addEventListener('load', init);
+
+        // Add some interactive sparkles on click
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'absolute';
+                sparkle.style.left = (e.clientX + Math.random() * 20 - 10) + 'px';
+                sparkle.style.top = (e.clientY + Math.random() * 20 - 10) + 'px';
+                sparkle.style.width = '4px';
+                sparkle.style.height = '4px';
+                sparkle.style.background = '#ffd700';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.animation = 'twinkle 1s ease-out forwards';
+                sparkle.style.zIndex = '10';
+                sparkle.style.pointerEvents = 'none';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+    </script>
+</body>
+</html>
